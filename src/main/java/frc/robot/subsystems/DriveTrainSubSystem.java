@@ -4,21 +4,22 @@
 
 package frc.robot.subsystems;
 
-import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.can.VictorSPX;
-
+import edu.wpi.first.wpilibj.motorcontrol.VictorSP;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 import frc.robot.commands.TankDriveCommand;
+
 
 public class DriveTrainSubSystem extends SubsystemBase {
   /** Creates a new DriveTrainSubSystem. */
   public DriveTrainSubSystem() {}
 
-  private VictorSPX motorLeft1 = new VictorSPX(Constants.MOTOR_LEFT_1_ID);
-  private VictorSPX motorLeft2 = new VictorSPX(Constants.MOTOR_LEFT_2_ID);
-  private VictorSPX motorRight1 = new VictorSPX(Constants.MOTOR_RIGHT_1_ID);
-  private VictorSPX motorRight2 = new VictorSPX(Constants.MOTOR_RIGHT_2_ID);
+  //private PWMMotorController motorLeft1 = new PWMMotorController();
+
+  private VictorSP motorLeft1 = new VictorSP(Constants.MOTOR_LEFT_1_ID);
+  private VictorSP motorLeft2 = new VictorSP(Constants.MOTOR_LEFT_2_ID);
+  private VictorSP motorRight1 = new VictorSP(Constants.MOTOR_RIGHT_1_ID);
+  private VictorSP motorRight2 = new VictorSP(Constants.MOTOR_RIGHT_2_ID);
 
   @Override
   public void periodic() {
@@ -29,13 +30,14 @@ public class DriveTrainSubSystem extends SubsystemBase {
 
   public void setLeftMotors(double speed)
   {
-    motorLeft1.set(ControlMode.PercentOutput, -speed);
-    motorLeft2.set(ControlMode.PercentOutput, -speed);
+    //motorLeft1.set(ControlMode.PercentOutput, -speed);
+    motorLeft1.set(-speed);
+    motorLeft2.set(-speed);
   }
 
   public void setRightMotors(double speed)
   {
-    motorRight1.set(ControlMode.PercentOutput, speed);
-    motorRight2.set(ControlMode.PercentOutput, speed);
+    motorRight1.set(speed);
+    motorRight2.set(speed);
   }
 }

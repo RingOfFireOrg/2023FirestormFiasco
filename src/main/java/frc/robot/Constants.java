@@ -30,7 +30,7 @@ public static final int CONTROLLER_DRIVER_ID = 0;
 public static final int CONTROLLER_MANIPULATOR_ID = 1;
 
 public static final int LEFT_STICK_Y = 1;
-public static final int RIGHT_STICK_Y = 5;
+public static final int RIGHT_STICK_Y = 3;
 
 
 
