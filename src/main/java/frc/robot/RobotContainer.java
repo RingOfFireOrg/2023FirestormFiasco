@@ -24,18 +24,18 @@ public class RobotContainer {
  
 
   // XBox Controllers constants
-private XboxController driverController = new XboxController(Constants.CONTROLLER_DRIVER_ID);
-private XboxController ManipulatorController = new XboxController(Constants.CONTROLLER_MANIPULATOR_ID);
+  private XboxController driverController = new XboxController(Constants.CONTROLLER_DRIVER_ID);
+  private XboxController ManipulatorController = new XboxController(Constants.CONTROLLER_MANIPULATOR_ID);
 
-public double GetDriverRawAxis(int axis)
-{
-  return driverController.getRawAxis(axis);
-}
+  public double GetDriverRawAxis(int axis)
+  {
+      return driverController.getRawAxis(axis);
+  }
 
-public double GetManipulatorRawAxis(int axis)
-{
-  return ManipulatorController.getRawAxis(axis);
-}
+  public double GetManipulatorRawAxis(int axis)
+  {
+    return ManipulatorController.getRawAxis(axis);
+  }
 
   private void configureBindings() {
 
