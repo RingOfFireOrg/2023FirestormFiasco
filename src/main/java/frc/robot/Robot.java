@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.subsystems.DriveTrainSubSystem;
+import frc.robot.subsystems.SweeperSubSystem;
 import frc.robot.subsystems.TeamColorDisplay;
 
 /**
@@ -21,6 +22,7 @@ public class Robot extends TimedRobot {
 
   public static RobotContainer m_robotContainer;
   public static DriveTrainSubSystem myDriveTrain = new DriveTrainSubSystem();
+  public static SweeperSubSystem mySweeper = new SweeperSubSystem();
   public static TeamColorDisplay myTeamColorsDisplay = new TeamColorDisplay();
 
 
