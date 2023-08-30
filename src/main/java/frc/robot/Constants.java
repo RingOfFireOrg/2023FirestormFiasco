@@ -34,5 +34,6 @@ public final class Constants {
 
   public static final int DIO_RED_LEDS = 0;
   public static final int DIO_BLUE_LEDS = 1;
+public static final int MOTOR_SWEEPER_ID = 0;
 
 }
