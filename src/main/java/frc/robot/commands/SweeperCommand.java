@@ -32,7 +32,7 @@ public class SweeperCommand extends CommandBase {
 
   /** Creates a new SweeperCommand. */
   public SweeperCommand() {
-    // Use addRequirements() here to declare subsystem dependencies.
+    addRequirements(Robot.mySweeper);
   }
 
   // Called when the command is initially scheduled.
@@ -60,6 +60,7 @@ public class SweeperCommand extends CommandBase {
     // direction.
     if(leftStickX <= 0)
     {
+      Robot.mySweeper.Sweep((-(leftStickX/2*leftStickX/2)));
       // assumption --- !!!! ---- Negative number is a LEFT motion! fix wires if not !!!
       if (motionConstraint == SweeperCommand.LEFT_ONLY || motionConstraint == SweeperCommand.FREE) {
         Robot.mySweeper.Sweep((-(leftStickX*leftStickX)));
@@ -72,6 +73,7 @@ public class SweeperCommand extends CommandBase {
         }
       }
     } else {
+      Robot.mySweeper.Sweep(((leftStickX/2*leftStickX/2)));
       if (motionConstraint == SweeperCommand.RIGHT_ONLY || motionConstraint == SweeperCommand.FREE) {
         Robot.mySweeper.Sweep((leftStickX*leftStickX));
         if (!limitSwitchState) { // don't want to change the recorded direction until the switch is free.

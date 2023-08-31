@@ -9,6 +9,7 @@ import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
+import frc.robot.commands.SweeperCommand;
 
 public class SweeperSubSystem extends SubsystemBase {
   /** Creates a new SweeperSubSystem. */
@@ -19,7 +20,7 @@ public class SweeperSubSystem extends SubsystemBase {
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
-    //setDefaultCommand(new SweeperCommand());
+    setDefaultCommand(new SweeperCommand());
   }
   // The motor will rotate left or right based on the input from the user as speed variable will have Postivie and negative alues
     public void Sweep(double speed)
