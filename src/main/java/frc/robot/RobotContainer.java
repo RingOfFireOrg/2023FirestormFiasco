@@ -37,6 +37,12 @@ public class RobotContainer {
     return ManipulatorController.getRawAxis(axis);
   }
 
+  // this needs a real implementation using a DIO on switch - rmackie
+  public boolean getSweeperLimitSwitchValue()
+  {
+    return false;
+  }
+
   private void configureBindings() {
 
   }
