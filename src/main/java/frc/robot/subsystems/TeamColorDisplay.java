@@ -66,7 +66,7 @@ static private final boolean OFF = true;
     public void setLedsOn()
     {
         red.set(TeamColorDisplay.OFF);  // change to "TeamColorDisplay.ON" on the RED branch
-        blue.set(TeamColorDisplay.OFF); // change to "TeamColorDisplay.ON" on the BLUE branch
+        blue.set(TeamColorDisplay.ON); // change to "TeamColorDisplay.ON" on the BLUE branch
     }
 
 }
