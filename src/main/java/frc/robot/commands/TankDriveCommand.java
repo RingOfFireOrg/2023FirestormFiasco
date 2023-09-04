@@ -26,24 +26,26 @@ public class TankDriveCommand extends CommandBase {
     //Get the value from the user.. how the drive controller is pressed
     double LeftStickY = Robot.m_robotContainer.GetDriverRawAxis(Constants.LEFT_STICK_Y);
     double RightStickY = Robot.m_robotContainer.GetDriverRawAxis(Constants.RIGHT_STICK_Y);
+    LeftStickY = LeftStickY * 0.58;
+    RightStickY = RightStickY * 0.58;
     SmartDashboard.putNumber("LeftStickValue", LeftStickY);
     SmartDashboard.putNumber("RightStickValue", RightStickY);
 
     // This is the code that actually drives the robot... We are multiplying the speeds so that it grudually increases the speed
     if(LeftStickY <= 0)
     {
-      Robot.myDriveTrain.setLeftMotors(-(LeftStickY/1.5*LeftStickY/1.5));
+      Robot.myDriveTrain.setLeftMotors(-(LeftStickY*LeftStickY));
     }
     else{
-      Robot.myDriveTrain.setLeftMotors(LeftStickY/1.5*LeftStickY/1.5);
+      Robot.myDriveTrain.setLeftMotors(LeftStickY*LeftStickY);
     }
     
     if(RightStickY <= 0)
     {
-      Robot.myDriveTrain.setRightMotors(-(RightStickY/1.5*RightStickY/1.5));
+      Robot.myDriveTrain.setRightMotors(-(RightStickY*RightStickY));
     }
     else{
-      Robot.myDriveTrain.setRightMotors(RightStickY/1.5*RightStickY/1.5);
+      Robot.myDriveTrain.setRightMotors(RightStickY*RightStickY);
     }
     
   }
