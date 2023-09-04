@@ -12,10 +12,14 @@ import frc.robot.Constants;
 import frc.robot.commands.SweeperCommand;
 
 public class SweeperSubSystem extends SubsystemBase {
-  /** Creates a new SweeperSubSystem. */
-  public SweeperSubSystem() {}
-
   private VictorSPX motorSweeper = new VictorSPX(Constants.MOTOR_SWEEPER_ID);
+  /** Creates a new SweeperSubSystem. */
+  public SweeperSubSystem() {
+
+    motorSweeper.setInverted(true);
+  }
+
+  
 
   @Override
   public void periodic() {
