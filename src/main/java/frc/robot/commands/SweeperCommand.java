@@ -92,6 +92,8 @@ public class SweeperCommand extends CommandBase {
   public boolean isFinished() {
     return false;
   }
+
+  // Not using this for Sprint1
   int computeMotionConstraint(boolean state, int constraint, int lastDirection)
   {
     int newConstraint = SweeperCommand.FREE;
