@@ -32,18 +32,18 @@ public class TankDriveCommand extends CommandBase {
     // This is the code that actually drives the robot... We are multiplying the speeds so that it grudually increases the speed
     if(LeftStickY <= 0)
     {
-      Robot.myDriveTrain.setLeftMotors(-(LeftStickY/2*LeftStickY/2));
+      Robot.myDriveTrain.setLeftMotors(-(LeftStickY/1.5*LeftStickY/1.5));
     }
     else{
-      Robot.myDriveTrain.setLeftMotors(LeftStickY/2*LeftStickY/2);
+      Robot.myDriveTrain.setLeftMotors(LeftStickY/1.5*LeftStickY/1.5);
     }
     
     if(RightStickY <= 0)
     {
-      Robot.myDriveTrain.setRightMotors(-(RightStickY/2*RightStickY/2));
+      Robot.myDriveTrain.setRightMotors(-(RightStickY/1.5*RightStickY/1.5));
     }
     else{
-      Robot.myDriveTrain.setRightMotors(RightStickY/2*RightStickY/2);
+      Robot.myDriveTrain.setRightMotors(RightStickY/1.5*RightStickY/1.5);
     }
     
   }
