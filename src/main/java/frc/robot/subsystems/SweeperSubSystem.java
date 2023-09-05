@@ -16,6 +16,7 @@ public class SweeperSubSystem extends SubsystemBase {
   /** Creates a new SweeperSubSystem. */
   public SweeperSubSystem() {
 
+    // The Sweeper motor is inverted with the way its mounted.
     motorSweeper.setInverted(true);
   }
 

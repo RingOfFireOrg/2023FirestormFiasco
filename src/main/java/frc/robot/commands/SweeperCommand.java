@@ -73,7 +73,7 @@ public class SweeperCommand extends CommandBase {
         }
       }
     } else {
-      Robot.mySweeper.Sweep((-(leftStickX/2*leftStickX/2)));
+      Robot.mySweeper.Sweep(((leftStickX/2*leftStickX/2)));
       if (motionConstraint == SweeperCommand.RIGHT_ONLY || motionConstraint == SweeperCommand.FREE) {
         Robot.mySweeper.Sweep((leftStickX*leftStickX));
         if (!limitSwitchState) { // don't want to change the recorded direction until the switch is free.
@@ -85,7 +85,10 @@ public class SweeperCommand extends CommandBase {
 
   // Called once the command ends or is interrupted.
   @Override
-  public void end(boolean interrupted) {}
+  public void end(boolean interrupted) {
+    //Set the motor to 0 speed.. to avoid any movement.
+    Robot.mySweeper.Sweep(0);
+  }
 
   // Returns true when the command should end.
   @Override

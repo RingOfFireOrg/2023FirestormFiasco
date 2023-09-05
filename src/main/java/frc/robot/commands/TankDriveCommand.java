@@ -16,6 +16,7 @@ public class TankDriveCommand extends CommandBase {
     addRequirements(Robot.myDriveTrain);
   }
 
+  private double speedFactor = 0.58;
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {}
@@ -26,8 +27,9 @@ public class TankDriveCommand extends CommandBase {
     //Get the value from the user.. how the drive controller is pressed
     double LeftStickY = Robot.m_robotContainer.GetDriverRawAxis(Constants.LEFT_STICK_Y);
     double RightStickY = Robot.m_robotContainer.GetDriverRawAxis(Constants.RIGHT_STICK_Y);
-    LeftStickY = LeftStickY * 0.58;
-    RightStickY = RightStickY * 0.58;
+    //Reducing the spped of motors as full speed is not ideal for this robot.
+    LeftStickY = LeftStickY * speedFactor;
+    RightStickY = RightStickY * speedFactor;
     SmartDashboard.putNumber("LeftStickValue", LeftStickY);
     SmartDashboard.putNumber("RightStickValue", RightStickY);
 
@@ -53,6 +55,7 @@ public class TankDriveCommand extends CommandBase {
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
+    // Set the motors to 0 so it wont move at the end of the command.
     Robot.myDriveTrain.setLeftMotors(0);
     Robot.myDriveTrain.setRightMotors(0);
   }
