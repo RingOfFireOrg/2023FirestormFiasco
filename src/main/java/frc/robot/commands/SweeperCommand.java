@@ -46,7 +46,14 @@ public class SweeperCommand extends CommandBase {
     // how the drive controller is pressed
     double leftStickX = Robot.m_robotContainer.GetManipulatorRawAxis(Constants.LEFT_STICK_X);
     SmartDashboard.putNumber("LeftStickValue of manipulator", leftStickX);
+    double sweepSpeed = leftStickX/2 * leftStickX/2;
 
+    if (leftStickX <= 0)
+    {
+      sweepSpeed *= -1;
+    }
+
+    Robot.mySweeper.Sweep(sweepSpeed);
 
     // Deal with limit switch and state.
     boolean limitSwitchState = Robot.m_robotContainer.getSweeperLimitSwitchValue();
@@ -58,7 +65,7 @@ public class SweeperCommand extends CommandBase {
     // We are going to use the limit switch read to know if we've hit the
     // end of motion and constrain motion so it can't go further in that 
     // direction.
-    if(leftStickX <= 0)
+   /* if(leftStickX <= 0)
     {
       Robot.mySweeper.Sweep(((leftStickX/2*leftStickX/2)));
       // assumption --- !!!! ---- Negative number is a LEFT motion! fix wires if not !!!
@@ -80,7 +87,7 @@ public class SweeperCommand extends CommandBase {
           formerDirection = SweeperCommand.RIGHT;
         }
       }
-    }
+    }*/
   }
 
   // Called once the command ends or is interrupted.
