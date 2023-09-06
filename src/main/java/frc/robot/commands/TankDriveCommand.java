@@ -16,6 +16,7 @@ public class TankDriveCommand extends CommandBase {
     addRequirements(Robot.myDriveTrain);
   }
 
+  private double speedFactor = 0.58;
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {}
@@ -26,8 +27,11 @@ public class TankDriveCommand extends CommandBase {
     //Get the value from the user.. how the drive controller is pressed
     double LeftStickY = Robot.m_robotContainer.GetDriverRawAxis(Constants.LEFT_STICK_Y);
     double RightStickY = Robot.m_robotContainer.GetDriverRawAxis(Constants.RIGHT_STICK_Y);
+    LeftStickY = LeftStickY * speedFactor;
+    RightStickY = RightStickY * speedFactor;
     SmartDashboard.putNumber("LeftStickValue", LeftStickY);
     SmartDashboard.putNumber("RightStickValue", RightStickY);
+
 
     // This is the code that actually drives the robot... We are multiplying the speeds so that it grudually increases the speed
     if(LeftStickY <= 0)

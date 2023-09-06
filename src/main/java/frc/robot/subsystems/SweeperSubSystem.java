@@ -7,15 +7,19 @@ package frc.robot.subsystems;
 import com.ctre.phoenix.motorcontrol.VictorSPXControlMode;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 
+import edu.wpi.first.wpilibj.motorcontrol.Victor;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 import frc.robot.commands.SweeperCommand;
 
 public class SweeperSubSystem extends SubsystemBase {
-  /** Creates a new SweeperSubSystem. */
-  public SweeperSubSystem() {}
-
   private VictorSPX motorSweeper = new VictorSPX(Constants.MOTOR_SWEEPER_ID);
+  /** Creates a new SweeperSubSystem. */
+  public SweeperSubSystem() {
+    motorSweeper.setInverted(true);
+  }
+
+  
 
   @Override
   public void periodic() {
