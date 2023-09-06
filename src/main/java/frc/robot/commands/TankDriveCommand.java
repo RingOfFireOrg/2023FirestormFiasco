@@ -27,11 +27,11 @@ public class TankDriveCommand extends CommandBase {
     //Get the value from the user.. how the drive controller is pressed
     double LeftStickY = Robot.m_robotContainer.GetDriverRawAxis(Constants.LEFT_STICK_Y);
     double RightStickY = Robot.m_robotContainer.GetDriverRawAxis(Constants.RIGHT_STICK_Y);
-    //Reducing the spped of motors as full speed is not ideal for this robot.
     LeftStickY = LeftStickY * speedFactor;
     RightStickY = RightStickY * speedFactor;
     SmartDashboard.putNumber("LeftStickValue", LeftStickY);
     SmartDashboard.putNumber("RightStickValue", RightStickY);
+
 
     // This is the code that actually drives the robot... We are multiplying the speeds so that it grudually increases the speed
     if(LeftStickY <= 0)
@@ -55,7 +55,6 @@ public class TankDriveCommand extends CommandBase {
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    // Set the motors to 0 so it wont move at the end of the command.
     Robot.myDriveTrain.setLeftMotors(0);
     Robot.myDriveTrain.setRightMotors(0);
   }

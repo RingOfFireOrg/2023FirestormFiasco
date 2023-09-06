@@ -47,18 +47,28 @@ public class SweeperCommand extends CommandBase {
     double leftStickX = Robot.m_robotContainer.GetManipulatorRawAxis(Constants.LEFT_STICK_X);
     SmartDashboard.putNumber("LeftStickValue of manipulator", leftStickX);
 
-
     // Deal with limit switch and state.
     boolean limitSwitchState = Robot.m_robotContainer.getSweeperLimitSwitchValue();
     SmartDashboard.putBoolean("Sweeper limit switch state", limitSwitchState);
     motionConstraint = computeMotionConstraint(limitSwitchState,motionConstraint, formerDirection);
-    
+    double sweepSpeed = leftStickX/2 * leftStickX/2;
+
+    // Multiplying two negatives makes it positive so negating sweepspeed if original value is negative
+    if (leftStickX <=0 )
+    {
+      sweepSpeed *= -1;
+    }
+    SmartDashboard.putNumber("sweep speed of manipulator", sweepSpeed);
+
+
+    Robot.mySweeper.Sweep(sweepSpeed);
+
     // This is the code that actually drives the robot... 
     // We are squaring the speeds so that it grudually increases the speed
     // We are going to use the limit switch read to know if we've hit the
     // end of motion and constrain motion so it can't go further in that 
     // direction.
-    if(leftStickX <= 0)
+    /*if(leftStickX <= 0)
     {
       Robot.mySweeper.Sweep((-(leftStickX/2*leftStickX/2)));
       // assumption --- !!!! ---- Negative number is a LEFT motion! fix wires if not !!!
@@ -80,7 +90,7 @@ public class SweeperCommand extends CommandBase {
           formerDirection = SweeperCommand.RIGHT;
         }
       }
-    }
+    }*/
   }
 
   // Called once the command ends or is interrupted.
