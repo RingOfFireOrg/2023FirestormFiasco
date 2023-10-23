@@ -7,7 +7,10 @@ package frc.robot;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
+import frc.robot.commands.SchmooverCommand;
 import frc.robot.subsystems.DriveTrainSubSystem;
+import frc.robot.subsystems.IntakeSubSystem;
+import frc.robot.subsystems.SchmooverSubSystem;
 import frc.robot.subsystems.SweeperSubSystem;
 import frc.robot.subsystems.TeamColorDisplay;
 
@@ -24,7 +27,8 @@ public class Robot extends TimedRobot {
   public static DriveTrainSubSystem myDriveTrain = new DriveTrainSubSystem();
   public static SweeperSubSystem mySweeper = new SweeperSubSystem();
   public static TeamColorDisplay myTeamColorsDisplay = new TeamColorDisplay();
-
+  public static SchmooverSubSystem mySchmoover = new SchmooverSubSystem();
+  public static IntakeSubSystem myIntake = new IntakeSubSystem();
 
   /**
    * This function is run when the robot is first started up and should be used for any
