@@ -10,12 +10,12 @@ import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 import edu.wpi.first.wpilibj.motorcontrol.Victor;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
-import frc.robot.commands.SweeperCommand;
+import frc.robot.commands.IntakeCommand;
 
-public class SweeperSubSystem extends SubsystemBase {
+public class IntakeSubSystem extends SubsystemBase {
   private VictorSPX motorSweeper = new VictorSPX(Constants.MOTOR_SWEEPER_ID);
   /** Creates a new SweeperSubSystem. */
-  public SweeperSubSystem() {
+  public IntakeSubSystem() {
     motorSweeper.setInverted(true);
   }
 
@@ -24,10 +24,10 @@ public class SweeperSubSystem extends SubsystemBase {
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
-    setDefaultCommand(new SweeperCommand());
+    setDefaultCommand(new IntakeCommand());
   }
   // The motor will rotate left or right based on the input from the user as speed variable will have Postivie and negative alues
-    public void Sweep(double speed)
+    public void Intake(double speed)
   {
     motorSweeper.set(VictorSPXControlMode.PercentOutput,speed);
   }

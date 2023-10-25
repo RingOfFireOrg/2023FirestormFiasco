@@ -37,6 +37,14 @@ public class RobotContainer {
     return ManipulatorController.getRawAxis(axis);
   }
 
+  public boolean GetManipulatorA() {
+    return ManipulatorController.getAButton();
+  }
+  
+  public boolean GetManipulatorB() {
+    return ManipulatorController.getBButton();
+  }
+
   // this needs a real implementation using a DIO on switch - rmackie
   public boolean getSweeperLimitSwitchValue()
   {
