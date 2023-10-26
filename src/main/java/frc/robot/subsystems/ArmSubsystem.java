@@ -15,7 +15,7 @@ public class ArmSubsystem extends SubsystemBase {
   /** Creates a new ArmSubsystem. */
   public ArmSubsystem() {}
 
-CANSparkMax armMotor = new CANSparkMax(8, MotorType.kBrushless);
+CANSparkMax armMotor = new CANSparkMax(9, MotorType.kBrushless);
 RelativeEncoder armEncoder2 = armMotor.getEncoder();
 double armSpeed;
 double armEncoderValue = 0;
@@ -33,6 +33,8 @@ double armEncoderValue = 0;
   public double getEncoderValue1(){
 
     return armEncoder2.getPosition();
-
+  }
+  public void ArmMove(double speed) {
+    armMotor.set(speed);
   }
 }

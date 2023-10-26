@@ -38,11 +38,21 @@ public class RobotContainer {
   }
 
   public boolean GetManipulatorA() {
-    return ManipulatorController.getAButton();
+    return ManipulatorController.getRawButton(1);
   }
   
   public boolean GetManipulatorB() {
-    return ManipulatorController.getBButton();
+    return ManipulatorController.getRawButton(2);
+  }
+
+  public double GetManipulatorLeftTrigger()
+  {
+    return ManipulatorController.getRawAxis(2);
+  }
+
+  public double GetManipulatorRightTrigger()
+  {
+    return ManipulatorController.getRawAxis(3);
   }
 
   // this needs a real implementation using a DIO on switch - rmackie

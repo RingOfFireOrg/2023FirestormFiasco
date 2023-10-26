@@ -27,8 +27,7 @@ public class IntakeSubSystem extends SubsystemBase {
     setDefaultCommand(new IntakeCommand());
   }
   // The motor will rotate left or right based on the input from the user as speed variable will have Postivie and negative alues
-    public void Intake(double speed)
-  {
+  public void Intake(double speed) {
     motorSweeper.set(VictorSPXControlMode.PercentOutput,speed);
   }
 

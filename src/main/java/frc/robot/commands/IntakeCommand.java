@@ -8,6 +8,7 @@ import javax.swing.SwingWorker;
 
 import com.ctre.phoenix.motorcontrol.VictorSPXControlMode;
 
+import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants;
@@ -15,13 +16,16 @@ import frc.robot.Robot;
 
 public class IntakeCommand extends CommandBase {
   /** Creates a new SweeperCommand. */
+  double intakeSpeed = 0;
+
   public IntakeCommand() {
     addRequirements(Robot.myIntake);
   }
 
   // Called when the command is initially scheduled.
   @Override
-  public void initialize() {}
+  public void initialize() {
+  }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
@@ -32,33 +36,37 @@ public class IntakeCommand extends CommandBase {
     boolean aIntake = Robot.m_robotContainer.GetManipulatorA();
     boolean bIntake = Robot.m_robotContainer.GetManipulatorB();
 
+   // XboxController opweatowr = new XboxController(1);
+
     SmartDashboard.putNumber("LeftStickValue of manipulator", leftStickX);
 
     // Deal with limit switch and state.
     boolean limitSwitchState = Robot.m_robotContainer.getSweeperLimitSwitchValue();
     SmartDashboard.putBoolean("Sweeper limit switch state", limitSwitchState);
-    double intakeSpeed = 0;
-
     // Multiplying two negatives makes it positive so negating sweepspeed if original value is negative
     if (aIntake) {
       intakeSpeed = 1;
+      Robot.myIntake.Intake(1);
     } else if (bIntake) {
       intakeSpeed = -1;
+      Robot.myIntake.Intake(-1);
     } else {
       intakeSpeed = 0;
+      Robot.myIntake.Intake(0);
+
     }
 
     SmartDashboard.putNumber("sweep speed of manipulator", intakeSpeed);
 
 
-    Robot.myIntake.Intake(intakeSpeed);
+    
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
     //Set the motor to 0 speed.. to avoid any movement.
-    Robot.myIntake.Intake(0);
+    //Robot.myIntake.Intake(0);
   }
 
   // Returns true when the command should end.
