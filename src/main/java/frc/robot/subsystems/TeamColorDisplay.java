@@ -20,7 +20,7 @@ private DigitalOutput blue;
 // constants up to make the "double negative"
 // easier to process mentally later.
 static private final boolean ON = false;
-static private final boolean OFF = true;
+static public final boolean OFF = true;
     
     /**
     *  This version of the constructor should appear only on the "main" branch
@@ -68,5 +68,11 @@ static private final boolean OFF = true;
         red.set(TeamColorDisplay.OFF);  // change to "TeamColorDisplay.ON" on the RED branch
         blue.set(TeamColorDisplay.OFF); // change to "TeamColorDisplay.ON" on the BLUE branch
     }
+    public void setLedsRed()
+    {
+        red.set(TeamColorDisplay.ON);  // change to "TeamColorDisplay.ON" on the RED branch
+        blue.set(TeamColorDisplay.OFF); // change to "TeamColorDisplay.ON" on the BLUE branch
+    }
+
 
 }
