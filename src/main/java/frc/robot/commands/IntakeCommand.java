@@ -48,8 +48,8 @@ public class IntakeCommand extends CommandBase {
       intakeSpeed = 1;
       Robot.myIntake.Intake(1);
     } else if (bIntake) {
-      intakeSpeed = -1;
-      Robot.myIntake.Intake(-1);
+      intakeSpeed = -0.5;
+      Robot.myIntake.Intake(-0.5);
     } else {
       intakeSpeed = 0;
       Robot.myIntake.Intake(0);

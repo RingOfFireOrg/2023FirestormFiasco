@@ -40,20 +40,20 @@ public class ArmCommand extends CommandBase {
 
   SmartDashboard.putNumber("Position Of Arm", armEncoder);
 
-  Robot.myArm.ArmMove(0.2*triggerDouble);
+  //Robot.myArm.ArmMove(0.2*triggerDouble);
 
-  /*if(armEncoder > 0 && triggerDouble < 0) {
-    Robot.myArm.ArmMove(triggerDouble*0.1);
-  } else if (armEncoder < 1 && triggerDouble > 0) {
-    Robot.myArm.ArmMove(triggerDouble*0.5);
+  if(armEncoder < -2 && triggerDouble < 0.1) {
+    Robot.myArm.ArmMove(-triggerDouble*0.1);
+  } else if (armEncoder > -15 && triggerDouble > -0.1) {
+    Robot.myArm.ArmMove(-triggerDouble*0.5);
   } else{
     Robot.myArm.ArmMove(0);
   }
-if (armEncoder > 0.8 && armEncoder < 1.2) {
+if (armEncoder > -20 && armEncoder < -11) {
   Robot.myTeamColorsDisplay.setLedsOn();
 } else{
   Robot.myTeamColorsDisplay.setLedsRed();
-}*/
+}
 
   }
   @Override

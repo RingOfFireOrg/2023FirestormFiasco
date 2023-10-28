@@ -16,7 +16,7 @@ public class TankDriveCommand extends CommandBase {
     addRequirements(Robot.myDriveTrain);
   }
 
-  private double speedFactor = 0.58;
+  private double speedFactor = .7;
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {}
@@ -36,10 +36,10 @@ public class TankDriveCommand extends CommandBase {
     // This is the code that actually drives the robot... We are multiplying the speeds so that it grudually increases the speed
     if(LeftStickY <= 0)
     {
-      Robot.myDriveTrain.setLeftMotors(-(LeftStickY*LeftStickY));
+      Robot.myDriveTrain.setLeftMotors(-(LeftStickY*LeftStickY*0.95));
     }
     else{
-      Robot.myDriveTrain.setLeftMotors(LeftStickY*LeftStickY);
+      Robot.myDriveTrain.setLeftMotors(LeftStickY*LeftStickY*0.95);
     }
     
     if(RightStickY <= 0)
