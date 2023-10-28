@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 import edu.wpi.first.wpilibj.DigitalOutput;
+import edu.wpi.first.wpilibj.Timer;
 
 /**
  *
@@ -65,8 +66,11 @@ static private final boolean OFF = true;
 
     public void setLedsOn()
     {
-        red.set(TeamColorDisplay.OFF);  // change to "TeamColorDisplay.ON" on the RED branch
-        blue.set(TeamColorDisplay.OFF); // change to "TeamColorDisplay.ON" on the BLUE branch
+        blue.set(TeamColorDisplay.OFF);  // change to "TeamColorDisplay.ON" on the RED branch
+        red.set(TeamColorDisplay.ON); // change to "TeamColorDisplay.ON" on the BLUE branch
+        Timer.delay(0.3);
+        red.set(TeamColorDisplay.OFF);
+        blue.set(TeamColorDisplay.ON);
     }
-
+    
 }
