@@ -68,9 +68,12 @@ static private final boolean OFF = true;
     {
         blue.set(TeamColorDisplay.OFF);  // change to "TeamColorDisplay.ON" on the RED branch
         red.set(TeamColorDisplay.ON); // change to "TeamColorDisplay.ON" on the BLUE branch
-        Timer.delay(0.2);
+        Timer.delay(0.01);
         red.set(TeamColorDisplay.OFF);
         blue.set(TeamColorDisplay.ON);
+        Timer.delay(0.01);
+        blue.set(TeamColorDisplay.ON);
+        red.set(TeamColorDisplay.ON);
     }
     
 }
