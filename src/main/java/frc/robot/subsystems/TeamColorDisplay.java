@@ -72,8 +72,8 @@ static private final boolean OFF = true;
         red.set(TeamColorDisplay.OFF);
         blue.set(TeamColorDisplay.ON);
         Timer.delay(0.01);
-        blue.set(TeamColorDisplay.ON);
-        red.set(TeamColorDisplay.ON);
+        blue.set(TeamColorDisplay.OFF);
+        red.set(TeamColorDisplay.OFF);
     }
     
 }
