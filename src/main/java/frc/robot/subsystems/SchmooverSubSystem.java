@@ -30,6 +30,7 @@ public class SchmooverSubSystem extends SubsystemBase {
     // The motor will rotate left or right based on the input from the user as speed variable will have Postivie and negative alues
     public void MoveSchmoover(double speed)
   {
+     //LiftMotorController.setOpenLoopRampRate(2);
     // Set the speed of the motor to either move up or down
       LiftMotorController.set(speed);
   }

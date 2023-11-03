@@ -44,20 +44,20 @@ public class SweeperCommand extends CommandBase {
   public void execute() {
     //Get the values from the user and from robot sensors
     // how the drive controller is pressed
-    double leftStickX = Robot.m_robotContainer.GetManipulatorRawAxis(Constants.LEFT_STICK_X);
-    SmartDashboard.putNumber("LeftStickValue of manipulator", leftStickX);
+    double leftStickY = Robot.m_robotContainer.GetManipulatorRawAxis(Constants.LEFT_STICK_Y);
+    SmartDashboard.putNumber("LeftStickValue of manipulator", leftStickY);
 
     // Deal with limit switch and state.
     boolean limitSwitchState = Robot.m_robotContainer.getSweeperLimitSwitchValue();
     SmartDashboard.putBoolean("Sweeper limit switch state", limitSwitchState);
     motionConstraint = computeMotionConstraint(limitSwitchState,motionConstraint, formerDirection);
-    double sweepSpeed = leftStickX/2 * leftStickX/2;
+    double sweepSpeed = leftStickY*0.75;
 
     // Multiplying two negatives makes it positive so negating sweepspeed if original value is negative
-    if (leftStickX <=0 )
+    /*if (leftStickX <=0 )
     {
       sweepSpeed *= -1;
-    }
+    }*/
     SmartDashboard.putNumber("sweep speed of manipulator", sweepSpeed);
 
 

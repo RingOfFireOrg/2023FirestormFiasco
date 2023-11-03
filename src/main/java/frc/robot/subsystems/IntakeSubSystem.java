@@ -3,7 +3,7 @@
 // the WPILib BSD license file in the root directory of this project.
 
 package frc.robot.subsystems;
-
+import edu.wpi.first.wpilibj.motorcontrol.VictorSP;
 import edu.wpi.first.cscore.CameraServerCvJNI;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
@@ -14,11 +14,11 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 public class IntakeSubSystem extends SubsystemBase {
   
-  private CANSparkMax IntakeMotorController;  
+  private VictorSP IntakeMotorController;  
   
   /** Creates a new IntakeSubSystem. */
   public IntakeSubSystem() {
-    IntakeMotorController = new CANSparkMax(Constants.MOTOR_INTAKE_ID,MotorType.kBrushed);
+    IntakeMotorController = new VictorSP(Constants.MOTOR_INTAKE_ID);
 
   }
 

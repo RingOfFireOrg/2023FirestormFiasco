@@ -24,11 +24,11 @@ public class IntakeCommand extends CommandBase {
   public void execute() {
      //Get the values from the user and from robot sensors
     // how the drive controller is pressed
-    double leftStickX = Robot.m_robotContainer.GetManipulatorRawAxis(Constants.LEFT_STICK_X);
-    SmartDashboard.putNumber("LeftStickValue of manipulator", leftStickX);
+    double rightStickX = Robot.m_robotContainer.GetManipulatorRawAxis(Constants.RIGHT_STICK_X);
+    SmartDashboard.putNumber("rightStickValue of manipulator", rightStickY);
 
     // Pass the value of Joystick to the motor so that it either rotates clockwise or anticlockwise
-    Robot.myIntake.OpenOrCloseIntake(leftStickX);
+    Robot.myIntake.OpenOrCloseIntake(rightStickX);
   }
 
   // Called once the command ends or is interrupted.

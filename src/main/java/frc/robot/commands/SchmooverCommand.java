@@ -11,7 +11,7 @@ import frc.robot.Robot;
 
 public class SchmooverCommand extends CommandBase {
   /** Creates a new SchmooverCommand. */
-  private double speedFactor = 0.58;
+  private double speedFactor = 1.0;
   public SchmooverCommand() {
     addRequirements(Robot.mySchmoover);//here to declare subsystem dependencies.
   }
@@ -35,9 +35,11 @@ public class SchmooverCommand extends CommandBase {
     // Smoothening the motor speed over period
     if(rightStickY <= 0)
     {
+      SmartDashboard.putNumber("Inside Schmoover If", rightStickY);
       Robot.mySchmoover.MoveSchmoover(-(rightStickY*rightStickY));
     }
     else{
+      SmartDashboard.putNumber("Inside Schmoover else", rightStickY);
       Robot.mySchmoover.MoveSchmoover((rightStickY*rightStickY));
     }
 
