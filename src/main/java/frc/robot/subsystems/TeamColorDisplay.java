@@ -69,7 +69,7 @@ static private final boolean OFF = true;
 
     // call this with a color { TeamColorDisplay.RED or TeamColorDisplay.BLUE } and then call 
     // setLedsOn(). the default will be 0 
-    public setColorPreference(int color) {
+    public void setColorPreference(int color) {
         chosenColor = color;
     }
 
@@ -81,15 +81,15 @@ static private final boolean OFF = true;
                 blue.set(TeamColorDisplay.OFF); // change to "TeamColorDisplay.ON" on the BLUE branch
                 break;
             case RED:
-                red.set(TeamColoreDisplay.ON);
+                red.set(TeamColorDisplay.ON);
                 blue.set(TeamColorDisplay.OFF);
                 break;
             case BLUE:
-                red.set(TeamColoreDisplay.OFF);
+                red.set(TeamColorDisplay.OFF);
                 blue.set(TeamColorDisplay.ON);
                 break;
             default:
-                red.set(TeamColoreDisplay.ON);
+                red.set(TeamColorDisplay.ON);
                 blue.set(TeamColorDisplay.ON);
                 break;
         }   
