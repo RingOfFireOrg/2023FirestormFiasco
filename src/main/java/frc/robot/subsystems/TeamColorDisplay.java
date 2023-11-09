@@ -13,6 +13,10 @@ import edu.wpi.first.wpilibj.DigitalOutput;
  */
 public class TeamColorDisplay extends SubsystemBase {
 
+public final int RED = 1;
+public final int BLUE = 2;
+private int chosenColor = 0;
+
 private DigitalOutput red;
 private DigitalOutput blue;
 
@@ -63,10 +67,32 @@ static private final boolean OFF = true;
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 
+    // call this with a color { TeamColorDisplay.RED or TeamColorDisplay.BLUE } and then call 
+    // setLedsOn(). the default will be 0 
+    public setColorPreference(int color) {
+        chosenColor = color;
+    }
+
     public void setLedsOn()
     {
-        red.set(TeamColorDisplay.OFF);  // change to "TeamColorDisplay.ON" on the RED branch
-        blue.set(TeamColorDisplay.OFF); // change to "TeamColorDisplay.ON" on the BLUE branch
+        switch(chosenColor) {
+            case 0: 
+                red.set(TeamColorDisplay.OFF);  // change to "TeamColorDisplay.ON" on the RED branch
+                blue.set(TeamColorDisplay.OFF); // change to "TeamColorDisplay.ON" on the BLUE branch
+                break;
+            case RED:
+                red.set(TeamColoreDisplay.ON);
+                blue.set(TeamColorDisplay.OFF);
+                break;
+            case BLUE:
+                red.set(TeamColoreDisplay.OFF);
+                blue.set(TeamColorDisplay.ON);
+                break;
+            default:
+                red.set(TeamColoreDisplay.ON);
+                blue.set(TeamColorDisplay.ON);
+                break;
+        }   
     }
 
 }
