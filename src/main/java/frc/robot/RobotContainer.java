@@ -25,18 +25,29 @@ public class RobotContainer {
 
   // XBox Controllers constants
   private XboxController driverController = new XboxController(Constants.CONTROLLER_DRIVER_ID);
-  private XboxController ManipulatorController = new XboxController(Constants.CONTROLLER_MANIPULATOR_ID);
+  //private XboxController ManipulatorController = new XboxController(Constants.CONTROLLER_MANIPULATOR_ID);
 
   public double GetDriverRawAxis(int axis)
   {
       return driverController.getRawAxis(axis);
   }
 
-  public double GetManipulatorRawAxis(int axis)
+  /*public double GetManipulatorRawAxis(int axis)
   {
     return ManipulatorController.getRawAxis(axis);
   }
-
+  public boolean manipulatorAButton () {
+    return ManipulatorController.getAButton();
+  }
+  public boolean manipulatorBButton () {
+    return ManipulatorController.getBButton();
+  }*/
+  public boolean buttonA () {
+    return driverController.getAButton();
+  }
+  public boolean buttonB () {
+    return driverController.getBButton();
+  }
   // this needs a real implementation using a DIO on switch - rmackie
   public boolean getSweeperLimitSwitchValue()
   {

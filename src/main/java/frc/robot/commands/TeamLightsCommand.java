@@ -23,8 +23,17 @@ public class TeamLightsCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    Robot.myTeamColorsDisplay.setLedsOn();
+    if (aButton){
+    
+    } else if (bButton) {
+
+    }else {
+      Robot.myTeamColorsDisplay.setLedsOn();
+    }
   }
+
+  boolean aButton = Robot.m_robotContainer.buttonA();
+  boolean bButton = Robot.m_robotContainer.buttonB();
 
   // Called once the command ends or is interrupted.
   @Override
