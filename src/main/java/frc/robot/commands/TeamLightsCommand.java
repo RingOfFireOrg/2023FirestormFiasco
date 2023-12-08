@@ -23,6 +23,7 @@ public class TeamLightsCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
+    Robot.myTeamColorsDisplay.setColorPreference(0);
     Robot.myTeamColorsDisplay.setLedsOn();
   }
 
