@@ -16,7 +16,7 @@ public class TankDriveCommand extends CommandBase {
     addRequirements(Robot.myDriveTrain);
   }
 
-  private double speedFactor = 0.65;
+  private double speedFactor = 0.75;
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {}
