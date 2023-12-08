@@ -5,13 +5,16 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.Constants;
 import frc.robot.Robot;
+//import frc.robot.subsystems.FlipperMotorSubsystem;
 
 public class FlipperMotorCommand extends CommandBase {
   /** Creates a new FlipperMotor. */
   public FlipperMotorCommand() {
     // Use addRequirements() here to declare subsystem dependencies.
-  }
+    addRequirements(Robot.myFlipper);
+  } 
 
   // Called when the command is initially scheduled.
   @Override
@@ -20,7 +23,9 @@ public class FlipperMotorCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    Robot.myFlipper.motorSet(0.1);
+    double leftStickY = Robot.m_robotContainer.GetManipulatorRawAxis(Constants.RIGHT_STICK_Y);
+
+    Robot.myFlipper.motorSet(0.5*leftStickY);
   }
 
   // Called once the command ends or is interrupted.
